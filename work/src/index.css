@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Optima", "Palatino Linotype", "Book Antiqua", "Georgia", "Songti SC", "STSong", "Noto Serif SC", serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #08090e;
+  color: #f4f1ea;
+  font-family: var(--font-sans);
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+canvas {
+  touch-action: none;
+}
+
+/* Mobile launch hardening: lock the page in place, kill rubber-band scroll
+   and double-tap zoom on controls, keep the app at the dynamic viewport height. */
+body {
+  position: fixed;
+  inset: 0;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  height: 100dvh;
+}
+
+button, a, [role='button'], [role='switch'] {
+  touch-action: manipulation;
+}
+
+input, textarea {
+  touch-action: manipulation;
+  -webkit-user-select: text;
+  user-select: text;
+}
